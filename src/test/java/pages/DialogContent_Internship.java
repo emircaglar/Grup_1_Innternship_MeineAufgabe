@@ -72,7 +72,7 @@ public class DialogContent_Internship extends Parent {
     public WebElement getRigtScroll() {
         return rigtScroll;
     }
-    
+
     public WebElement getEducation_Subjct_DeleteName() {
         return Education_Subjct_DeleteName;
     }
@@ -109,7 +109,7 @@ public class DialogContent_Internship extends Parent {
         return Education_Subject_Style_Button;
     }
 
-    //mat-form-field[@formgroupname='css']//mat-select
+
     public List<WebElement> getEducation_Subject_Options() {
         return Education_Subject_Categoryoptions;
     }
