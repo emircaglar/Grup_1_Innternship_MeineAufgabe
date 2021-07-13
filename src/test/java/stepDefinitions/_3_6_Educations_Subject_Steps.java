@@ -32,7 +32,7 @@ public class _3_6_Educations_Subject_Steps {
     dc.verifyFunctions(dc.getEducation_successfullyMessage(),"successfully");
     }
 
-    @When("^User delete  Citizenschip name as \"([^\"]*)\"$")
+    @When("^User delete  Subject name as \"([^\"]*)\"$")
     public void userDeleteCitizenschipNameAs(String name) {
       dc.findandDelete(name);
     }
