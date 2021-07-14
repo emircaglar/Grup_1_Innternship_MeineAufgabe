@@ -7,9 +7,9 @@ Feature: Educations Subject Functionalty
     When Enter username and password and click login button
     Given Navigate to Education
 
-    Then Create  a Subject name as "Abdullah" code as "4561"
+    Then Create  a Subject
     Then Success message be displayed
 
-    When User delete  Subject name as "Abdullah"
+    When User delete  Subject
     Then Success message be displayed
 

@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 import pages.DialogContent_Internship;
 import pages.Left_Nav_Internship;
 import utilities.BaseDriver_Internship;
+import utilities.ExcelUtilities;
+
+import java.util.List;
 
 public class _3_6_Educations_Subject_Steps {
     WebDriver driver= BaseDriver_Internship.getDriver();
@@ -32,17 +35,24 @@ public class _3_6_Educations_Subject_Steps {
     dc.verifyFunctions(dc.getEducation_successfullyMessage(),"successfully");
     }
 
-    @When("^User delete  Subject name as \"([^\"]*)\"$")
-    public void userDeleteCitizenschipNameAs(String name) {
-      dc.findandDelete(name);
+    @Then("^Create  a Subject$")
+    public void createASubject() {
+        List<List<String>>excelReturnList = ExcelUtilities.getListData("src/test/java/ApachePOI/recources/ApacheExcel2.xlsx","testCitizen",2);
+        for (int i = 0; i <excelReturnList.size() ; i++) {
+            dc.findAndClick(dc.getEducation_Subject_addButton());
+            dc.findAndSend(dc.getEducation_Subject_inputName(),excelReturnList.get(i).get(0));
+            dc.findAndSend(dc.getEducation_Subject_inputCode(),excelReturnList.get(i).get(1));
+            dc.findAndClick(dc.getEducation_Subject_Category_Button());
+            dc.findAndSelect(dc.getEducation_Subject_Options(),"Foreign Languages");
+            dc.findAndClick(dc.getEduc_Sub_saveButton());
+        }
     }
-    @Then("^Create  a Subject name as \"([^\"]*)\" code as \"([^\"]*)\"$")
-    public void createASubjectNameAsCodeAs(String name, String code)  {
-        dc.findAndClick(dc.getEducation_Subject_addButton());
-        dc.findAndSend(dc.getEducation_Subject_inputName(),name);
-        dc.findAndSend(dc.getEducation_Subject_inputCode(),code);
-        dc.findAndClick(dc.getEducation_Subject_Category_Button());
-        dc.findAndSelect(dc.getEducation_Subject_Options(),"Foreign Languages");
-        dc.findAndClick(dc.getEduc_Sub_saveButton());
+
+    @When("^User delete  Subject$")
+    public void userDeleteSubject() {
+        List<List<String>>excelReturnList = ExcelUtilities.getListData("src/test/java/ApachePOI/recources/ApacheExcel2.xlsx","testCitizen",2);
+        for (int i = 0; i <excelReturnList.size() ; i++) {
+            dc.findandDelete(excelReturnList.get(i).get(0));
+        }
     }
 }
