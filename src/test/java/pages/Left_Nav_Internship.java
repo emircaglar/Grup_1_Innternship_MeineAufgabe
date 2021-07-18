@@ -16,10 +16,10 @@ public class Left_Nav_Internship extends Parent {
 
 
     @FindBy(xpath = "(//span[text()='Setup'])[5]")
-    private WebElement Education_Setup_Button;
+    private  WebElement Education_Setup_Button;
 
     @FindBy(xpath = " //span[text()='Subjects']")
-    private WebElement Education_Subject_Button;
+    private  WebElement Education_Subject_Button;
 
 
     public WebElement getEducation_Setup_Button() {
